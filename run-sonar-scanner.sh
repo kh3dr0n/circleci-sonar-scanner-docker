@@ -10,6 +10,10 @@ if [ -n "${SONAR_HOST:-}" ]; then
   SONAR_OPTS="${SONAR_OPTS} -D sonar.host.url=${SONAR_HOST}"
 fi
 
+if [ -n "${SONAR_EXCLUSIONS:-}" ]; then
+  SONAR_OPTS="${SONAR_OPTS} -D sonar.exclusions=${SONAR_EXCLUSIONS}"
+fi
+
 if [ -n "${CIRCLE_SHA1:-}" ]; then
   SONAR_OPTS="${SONAR_OPTS} -D sonar.projectVersion=${CIRCLE_SHA1}"
 fi
